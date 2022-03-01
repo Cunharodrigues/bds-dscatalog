@@ -9,7 +9,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
 }
 
-a, a:hover {
+a,
+a:hover {
   text-decoration: nome;
   color: unset;
+}
+
+.base-card {
+  background-color: #fff;
+  box-shadow: opx 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
