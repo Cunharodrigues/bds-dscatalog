@@ -1,7 +1,7 @@
 import { ReactComponent as MainImage } from 'assets/images/main-image.svg';
 import ButtonIcon from '../../components/Navbar/ButtonIcon/Index';
 import './styles.css';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -15,9 +15,11 @@ const Home = () => {
               mercado.
             </p>
           </div>
-          <Link to="/products">
-            <ButtonIcon />
-          </Link>
+          <div>
+            <Link to="/products">
+              <ButtonIcon />
+            </Link>
+          </div>
         </div>
         <div className="home-image-container">
           <MainImage />
