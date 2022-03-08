@@ -1,3 +1,4 @@
+import ProductDetails from 'pages/ProductDetails';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Admin from './pages/Admin';
@@ -11,8 +12,11 @@ const Routes = () => (
       <Route path="/" exact>
         <Home />
       </Route>
-      <Route path="/products">
+      <Route path="/products" exact>
         <Catalog />
+      </Route>
+      <Route path="/products/:productId">
+        <ProductDetails />
       </Route>
       <Route path="/Admin">
         <Admin />
