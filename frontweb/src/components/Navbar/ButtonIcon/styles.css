@@ -30,11 +30,12 @@
     height: 70px;
   }
 
-  .btn h6 {
-    font-size: 18px;
-  }
-
   .btn-container button {
     width: calc(100% - 70px);
   }
+
+  .btn h6 {
+    font-size: 18px;
+  }
+ 
 }
