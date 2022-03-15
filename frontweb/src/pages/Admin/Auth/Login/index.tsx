@@ -1,8 +1,10 @@
 import ButtonIcon from 'components/Navbar/ButtonIcon';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { requestBackendLogin } from 'util/requests';
 
 import './styles.css';
+import { ServerResponse } from 'http';
 
 type FormData = {
   username: string;
@@ -12,8 +14,14 @@ type FormData = {
 const Login = () => {
   const { register, handleSubmit } = useForm<FormData>();
 
-  const onSubmit = (formData : FormData) => {
-      console.log(formData);
+  const onSubmit = (formData: FormData) => {
+    requestBackendLogin(formData)
+    .then((response) => {
+      console.log('SUCESSO', response);
+    })
+    .catch(error => {
+        console.log('ERROR', error);
+    });
   };
 
   return (
