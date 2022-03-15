@@ -1,7 +1,7 @@
 import ButtonIcon from 'components/Navbar/ButtonIcon';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { requestBackendLogin } from 'util/requests';
+import { getAuthData, requestBackendLogin } from 'util/requests';
 import { useState } from 'react';
 
 import './styles.css';
@@ -23,6 +23,8 @@ const Login = () => {
   const onSubmit = (formData: FormData) => {
     requestBackendLogin(formData)
       .then((response) => {
+        const token = getAuthData().access_token;
+        console.log('TOKEN GERADO:' + token);
         setHasError(false);
         console.log('SUCESSO', response);
       })
