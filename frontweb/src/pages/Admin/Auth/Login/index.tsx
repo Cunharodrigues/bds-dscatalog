@@ -1,4 +1,4 @@
-import ButtonIcon from 'components/Navbar/ButtonIcon';
+import ButtonIcon from 'components/ButtonIcon';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { getAuthData, requestBackendLogin } from 'util/requests';
