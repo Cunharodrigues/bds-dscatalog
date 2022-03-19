@@ -2,28 +2,28 @@
   display: flex;
   justify-content: space-around;
   padding: 20px;
-  border: 2px solid red;
+  /*border: 2px solid red;*/
 }
 
 .auth-banner-container {
   display: none;
-  border: 2px solid orange
+  /*border: 2px solid orange*/
 }
 
 .auth-form-container {
   width: 100%;
-  border: 2px solid blue;
+  /*border: 2px solid blue;*/
 }
 
 @media (min-width: 576px) {
   .auth-form-container {
-    width: 480%;
+    width: 480px;
   }
 }
 
 @media (min-width: 768px) {
   .auth-form-container {
-    width: 550%;
+    width: 550px;
   }
 }
 
@@ -54,7 +54,7 @@
 
   .auth-banner-container svg {
     width: 100%;
-    border: 2px solid green;
+    /*border: 2px solid green;*/
   }
 }
 

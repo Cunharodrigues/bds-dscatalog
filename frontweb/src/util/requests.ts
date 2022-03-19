@@ -2,11 +2,11 @@ import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
 
 type LoginResponse = {
-  access_token: string,
-  token_type: string,
-  expires_in: number,
-  scope: string,
-  userFirstName: string,
+  access_token: string;
+  token_type: string;
+  expires_in: number;
+  scope: string;
+  userFirstName: string;
   userId: number;
 }
 
@@ -18,6 +18,7 @@ export const BASE_URL =
 const CLIENT_ID = process.env.REACT_APP_APP_CLIENT_ID ?? 'dscatalog';
 const CLIENT_SECRET = process.env.REACT_APP_APP_CLIENT_SECRET ?? 'dscatalog123';
 
+
 type LoginData = {
   username: string;
   password: string;
@@ -26,7 +27,7 @@ type LoginData = {
 export const requestBackendLogin = (loginData: LoginData) => {
   const headers = {
     'Content-type': 'application/x-www-form-urlencoded',
-    Authorization : 'Basic ' + window.btoa(CLIENT_ID + ':' + CLIENT_SECRET)
+    Authorization : 'basic ' + window.btoa(CLIENT_ID + ':' + CLIENT_SECRET)
   };
 
   const data = qs.stringify ({
@@ -38,7 +39,13 @@ export const requestBackendLogin = (loginData: LoginData) => {
 }
 
 export const requestBackend = (config:AxiosRequestConfig) => {
-  return axios({...config, baseURL: BASE_URL});
+  
+  const headers = config.withCredentials ? {
+        ...config.headers,
+        Authorization: "Bearer " + getAuthData().access_token
+  } : config.headers;
+  
+  return axios({...config, baseURL: BASE_URL, headers});
 }
 
 export const saveAuthData =(obj : LoginResponse) => {
