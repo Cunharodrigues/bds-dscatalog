@@ -1,10 +1,11 @@
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import ButtonIcon from 'components/ButtonIcon';
 import { useForm } from 'react-hook-form';
-import { getTokenData, requestBackendLogin } from 'util/requests';
+import { requestBackendLogin } from 'util/requests';
 import { saveAuthData } from 'util/storage';
 import { useContext, useState } from 'react';
 import { AuthContext } from 'AuthContext';
+import { getTokenData } from 'util/auth';
 
 
 import './styles.css';
@@ -111,3 +112,5 @@ const Login = () => {
 };
 
 export default Login;
+
+

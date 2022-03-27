@@ -1,4 +1,4 @@
-//import jwtDecode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 import { getAuthData } from './storage';
 
 export type Role = 'ROLE_OPERATOR' | 'ROLE_ADMIN';
@@ -40,7 +40,4 @@ export const hasAnyRoles = (roles: Role[]): boolean => {
 
   return false;
 };
-function jwtDecode(access_token: string): TokenData {
-  throw new Error('Function not implemented.');
-}
 
