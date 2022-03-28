@@ -7,9 +7,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from 'AuthContext';
 import { getTokenData } from 'util/auth';
 
-
 import './styles.css';
-
 
 type FormData = {
   username: string;

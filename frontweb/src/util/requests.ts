@@ -1,20 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
-//import { type } from 'os';
 import qs from 'qs';
 import history from './history';
 import { getAuthData } from './storage';
-
-export type Role = 'ROLE_OPERATOR' | 'ROLE_ADMIN';
-
-
-/*type LoginResponse = {
-  access_token: string;
-  token_type: string;
-  expires_in: number;
-  scope: string;
-  userFirstName: string;
-  userId: number;
-};*/
 
 export const BASE_URL =
   process.env.REACT_APP_BACKEND_URL ?? 'http://localhost:8080';
