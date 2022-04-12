@@ -1,5 +1,6 @@
 .product-crud-card {
   margin-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .product-crud-card-top-container {
@@ -9,8 +10,8 @@
 }
 
 .product-crud-card-top-container img {
-    width: 158px;
-    height: 158px;
+  width: 158px;
+  height: 158px;
 }
 
 .product-crud-card-botton-container {
@@ -19,10 +20,30 @@
 
 .product-crud-card-botton-container h6 {
   font-size: 18px;
-  color:#263238;
+  color: #263238;
 }
 
 .product-crud-categories-container {
   display: flex;
+  flex-wrap: wrap;
   padding: 0 20px;
+}
+
+.product-crud-card-buttons-container {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-crud-card-button {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  border-radius: 10px;
+  width: 110px;
+  height: 40px;
+}
+
+.product-crud-card-button-first {
+  margin-right: 10px;
 }
