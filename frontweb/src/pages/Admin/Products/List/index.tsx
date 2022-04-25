@@ -16,7 +16,7 @@ const List = () => {
       method: 'GET',
       url: '/products',
       params: {
-        page: 0,
+        page: 1,
         sixe: 50,
       },
     };
