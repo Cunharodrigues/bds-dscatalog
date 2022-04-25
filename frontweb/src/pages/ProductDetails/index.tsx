@@ -10,7 +10,9 @@ import ProductInfoLoader from './ProductInfoLoader';
 
 import './styles.css';
 
-const ProductDetails = () => {
+
+const ProductDetails = () => {  
+
   type UrlParams = {
     productId: string;
   };

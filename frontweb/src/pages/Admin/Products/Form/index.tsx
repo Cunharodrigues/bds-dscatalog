@@ -1,19 +1,47 @@
 import { AxiosRequestConfig } from 'axios';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Product } from 'types/product';
 import { requestBackend } from 'util/requests';
 
 import './styles.css';
 
+
+
 const Form = () => {
+
+  const { productId } = useParams<UrlParams>();
+
+  type UrlParams = {
+    productId: string;
+  };
+
+  const isEditing = productId !== 'create';
+
   const history = useHistory();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue
   } = useForm<Product>();
+
+  useEffect(() => {
+    if (isEditing) {
+      requestBackend({ url: `/products/${productId}` })
+        .then((response) => {
+        const product = response.data as Product;
+
+        setValue('name', product.name);
+        setValue('price', product.price);
+        setValue('description', product.description);
+        setValue('imgUrl', product.imgUrl);
+        setValue('categories', product.categories);
+      });
+    }
+  }, [isEditing, productId, setValue]);
 
   const onSubmit = (formData: Product) => {
     const data = {
