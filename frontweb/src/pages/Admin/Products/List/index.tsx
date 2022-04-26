@@ -20,7 +20,7 @@ const List = () => {
       method: 'GET',
       url: '/products',
       params: {
-        page: 1,
+        page: 0,
         sixe: 50,
       },
     };
