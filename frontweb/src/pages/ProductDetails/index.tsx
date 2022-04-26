@@ -10,14 +10,13 @@ import ProductInfoLoader from './ProductInfoLoader';
 
 import './styles.css';
 
+type UrlParams = {
+  productId: string;
+};
 
 const ProductDetails = () => {  
 
-  type UrlParams = {
-    productId: string;
-  };
-
-  const { productId } = useParams<UrlParams>();
+    const { productId } = useParams<UrlParams>();
 
   const [isLoading, setIsLoading] = useState(false);
   const [product, setProduct] = useState<Product>();
