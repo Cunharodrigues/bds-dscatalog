@@ -1,4 +1,3 @@
-
 import { AxiosRequestConfig } from 'axios';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -57,7 +56,7 @@ const Form = () => {
       data,
       withCredentials: true,
     };
-
+      
     requestBackend(config).then(() => {
       history.push('/admin/products');
     });
