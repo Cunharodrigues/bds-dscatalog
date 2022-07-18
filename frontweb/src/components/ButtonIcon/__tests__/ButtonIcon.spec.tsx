@@ -12,7 +12,7 @@ test('ButtonIcon should render button with given text', () => {
             <ButtonIcon text={text} />
         );
 
-        screen.debug();
+        //screen.debug();
 
     // ASSERT
         expect(screen.getByText(text)).toBeInTheDocument();   
