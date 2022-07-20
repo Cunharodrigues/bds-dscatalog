@@ -1,4 +1,5 @@
 import { getByTestId, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Pagination from "..";
 
 describe('Pagination tests', () => {
@@ -40,5 +41,86 @@ describe('Pagination tests', () => {
    
     });
 
+    test('next arrow should call onChange', () => {
+
+        // ARANGE
+        const pageCount = 3;
+        const range = 3;
+        const onChange = jest.fn();
+
+        // ACT
+        render(
+
+            <Pagination 
+                pageCount={pageCount}
+                range={range}
+                onChange={onChange}
+            />
+        );
+
+        // ASSERT
+
+        const arrowNext = screen.getByTestId("arrow-next");        
+        
+        userEvent.click(arrowNext);
+        expect(onChange).toHaveBeenCalledWith(1);
+   
+    });
+
+    test('previous arrow should call onChange', () => {
+
+        // ARANGE
+        const pageCount = 3;
+        const range = 3;
+        const onChange = jest.fn();
+        const forcePage = 1;
+
+
+        // ACT
+        render(
+
+            <Pagination 
+                pageCount={pageCount}
+                range={range}
+                onChange={onChange}
+                forcePage={forcePage}
+            />
+        );
+
+        // ASSERT
+
+        const arrowPrevious = screen.getByTestId("arrow-previous");        
+        
+        userEvent.click(arrowPrevious);
+        expect(onChange).toHaveBeenCalledWith(0);
+   
+    });
+
+    test('page link should call onChange', () => {
+
+        // ARANGE
+        const pageCount = 3;
+        const range = 3;
+        const onChange = jest.fn();        
+
+
+        // ACT
+        render(
+
+            <Pagination 
+                pageCount={pageCount}
+                range={range}
+                onChange={onChange}               
+            />
+        );
+
+        // ASSERT
+
+        const page2 = screen.getByText("2");       
+        
+        userEvent.click(page2);
+        expect(onChange).toHaveBeenCalledWith(1);
+   
+    });
 });
 
