@@ -66,5 +66,27 @@ describe('Product Form create tests', () => {
         expect(history.location.pathname).toEqual('/admin/products');
     });
 
+
+    test('should show 5 validation messages when just clicking submit', async () => {
+
+        render(
+
+            <Router history={history}>                
+                <Form />
+            </Router>
+        );
+
+        //screen.debug();
+
+        // Simulação do Click do botao "SALVAR"
+        const submitButton = screen.getByRole('button', { name: /salvar/i })
+  
+        userEvent.click(submitButton);
+
+            await waitFor(() => {
+                const messages = screen.getAllByText('Campo obrigatório');
+                expect(messages).toHaveLength(5);
+            });       
+    });
 });
 
