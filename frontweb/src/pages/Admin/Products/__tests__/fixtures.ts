@@ -44,7 +44,7 @@ const findCategoriesResponse = {
     "empty": false
 }
 
-const saveProductResponse = {
+export const productResponse = {
     "id": 2,
     "name": "Smart TV",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -53,8 +53,12 @@ const saveProductResponse = {
     "date": "2020-07-14T10:00:00Z",
     "categories": [
         {
-            "id": 1,
-            "name": "Livros",
+            "id": 2,
+            "name": "Eletrônicos",
+        },
+        {
+            "id": 3,
+            "name": "Computadores"
         },
     ],
 }
@@ -70,7 +74,19 @@ export const server = setupServer(
     rest.post(`${BASE_URL}/products`, (req, res, ctx) => {
         return res(
             ctx.status(201),
-            ctx.json(saveProductResponse)
+            ctx.json(productResponse)
+        );
+    }),
+    rest.put(`${BASE_URL}/products/:productId`, (req, res, ctx) => {
+        return res(
+            ctx.status(200),
+            ctx.json(productResponse)
+        );
+    }),
+    rest.get(`${BASE_URL}/products/:productId`, (req, res, ctx) => {
+        return res(
+            ctx.status(200),
+            ctx.json(productResponse)
         );
     })
 );
